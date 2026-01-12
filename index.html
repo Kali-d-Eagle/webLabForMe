@@ -49,6 +49,7 @@
     <button onclick="downloadSingle(7)">exp7</button>
     <button onclick="downloadSingle(9)">exp9</button>
     <button onclick="downloadSingle(10)">exp10</button>
+    <butoon onclick="downloadSingle(66)">exp66</butoon>
 </div>
 
 <script>
@@ -68,7 +69,7 @@ async function downloadSingle(expNo) {
     const blob = new Blob([code], { type: "text/html" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
-    a.download = `Ak04_Exp${expNo}.html`;
+    a.download = `Unknown_Exp${expNo}.html`;
     a.click();
 
     URL.revokeObjectURL(a.href);
@@ -90,7 +91,7 @@ async function downloadExp3() {
     );
 
     const content = await zip.generateAsync({ type: "blob" });
-    saveAs(content, "Ananya_Exp3.zip");
+    saveAs(content, "Unknown_Exp3.zip");
 }
 </script>
 
