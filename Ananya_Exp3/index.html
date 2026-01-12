@@ -20,16 +20,58 @@
                 <span>This span is a direct child of the section.</span>
             </section>
 
-            <p>The current date: <time datetime="2026-01-12">Jan 12, 2026</time></p>
+            <p>The current date: <time datetime="2026-01-12" id="getTime">Jan 12, 2026</time></p>
             <p>Notice how the first letter of each paragraph is styled differently.</p>
 
             <article class="special">
                 <p>This paragraph is inside an article with class="special".</p>
             </article>
 
-            <img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/6z473u5f7WaFUnr9GxDEk2/085274c4a841bd2dc900ebca36c43c9c/GettyImages-1255905237.jpg?w=1500&h=680&q=60&fit=fill&f=faces&fm=jpg&fl=progressive&auto=format%2Ccompress&dpr=1&w=1000" alt="A placeholderImage">
+            <img src="https://media.gettyimages.com/id/898581556/photo/entrepreneur-or-executive-working-at-office.jpg?s=612x612&w=gi&k=20&c=vFGJVjqO5Fw0XfG1pPWW-JDJOJKLFcgjep0ONR8eOu8=" alt="a placeholder img">
+            <!-- <img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/6z473u5f7WaFUnr9GxDEk2/085274c4a841bd2dc900ebca36c43c9c/GettyImages-1255905237.jpg?w=1500&h=680&q=60&fit=fill&f=faces&fm=jpg&fl=progressive&auto=format%2Ccompress&dpr=1&w=1000" alt="A placeholderImage"> -->
 
             <p>Check out this <a href="https://searchcreators.org/">link</a> to see different link states.</p>
         </main>
+        <script>
+            function getTime(){
+                const timeEle = document.getElementById("getTime");
+            
+                const months = {
+                    1: "Jan",
+                    2: "Feb",
+                    3: "Mar",
+                    4: "Apr",
+                    5: "May",
+                    6: "Jun",
+                    7: "Jul",
+                    8: "Aug",
+                    9: "Sep",
+                    10: "Oct",
+                    11: "Nov",
+                    12: "Dec"
+                };
+            
+            
+                const t = new Date();
+            
+                // Date
+                const monthIdx = t.getMonth() + 1;
+                const monthName = months[monthIdx];
+                const date = t.getDate();
+                const year = t.getFullYear();
+            
+                // time
+                const hrs = t.getHours();
+                const mins = t.getMinutes();
+                const secs = t.getSeconds();
+            
+                timeEle.innerText = `${monthName} ${date}, ${year} | ${hrs}:${mins}:${secs}`;
+            
+            }
+            
+            setInterval(getTime,1000);
+            getTime();
+            
+        </script>
     </body>
 </html>
